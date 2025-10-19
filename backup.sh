@@ -1,6 +1,6 @@
 #!/bin/bash
 # backup.sh
-# Daily backup of Homebrew installed packages with date-based logs
+# Daily backup of Homebrew installed packages with date-based logs and console output
 
 BASE_DIR="$HOME/brew-backup-daily"
 BREWFILES_DIR="$BASE_DIR/brewfiles"
@@ -25,5 +25,5 @@ LOG_FILE="$LOGS_DIR/backup-$DATE.log"
     fi
 
     echo "--------------------------------------------"
-} >> "$LOG_FILE" 2>&1
+} 2>&1 | tee -a "$LOG_FILE"
 
